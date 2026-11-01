@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\JollyDirectXTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{953982BA-C8B2-F75F-31DE-981B446E53BA}|JollyDirectXTest\\JollyDirectXTestCtrl.csproj|d:\\jollydirectxtest\\jollydirectxtest\\jollydirectxtestctrl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{953982BA-C8B2-F75F-31DE-981B446E53BA}|JollyDirectXTest\\JollyDirectXTestCtrl.csproj|solutionrelative:jollydirectxtest\\jollydirectxtestctrl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00839398-5F06-4F97-A708-B244493F30A6}|Demos\\JollyAmp\\JollyAmp.csproj|d:\\jollydirectxtest\\demos\\jollyamp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{00839398-5F06-4F97-A708-B244493F30A6}|Demos\\JollyAmp\\JollyAmp.csproj|solutionrelative:demos\\jollyamp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00839398-5F06-4F97-A708-B244493F30A6}|Demos\\JollyAmp\\JollyAmp.csproj|d:\\jollydirectxtest\\demos\\jollyamp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{00839398-5F06-4F97-A708-B244493F30A6}|Demos\\JollyAmp\\JollyAmp.csproj|solutionrelative:demos\\jollyamp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JollyDirectXTestCtrl",
+              "DocumentMoniker": "D:\\JollyDirectXTest\\JollyDirectXTest\\JollyDirectXTestCtrl.csproj",
+              "RelativeDocumentMoniker": "JollyDirectXTest\\JollyDirectXTestCtrl.csproj",
+              "ToolTip": "D:\\JollyDirectXTest\\JollyDirectXTest\\JollyDirectXTestCtrl.csproj",
+              "RelativeToolTip": "JollyDirectXTest\\JollyDirectXTestCtrl.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-01T18:28:30.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\JollyDirectXTest\\Demos\\JollyAmp\\App.xaml",
+              "RelativeDocumentMoniker": "Demos\\JollyAmp\\App.xaml",
+              "ToolTip": "D:\\JollyDirectXTest\\Demos\\JollyAmp\\App.xaml",
+              "RelativeToolTip": "Demos\\JollyAmp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-01T15:32:23.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\JollyDirectXTest\\Demos\\JollyAmp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Demos\\JollyAmp\\MainWindow.xaml",
+              "ToolTip": "D:\\JollyDirectXTest\\Demos\\JollyAmp\\MainWindow.xaml",
+              "RelativeToolTip": "Demos\\JollyAmp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-31T18:52:30.817Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

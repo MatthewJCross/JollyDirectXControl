@@ -1,0 +1,97 @@
+﻿<Window x:Class="Jolly2DEngineLab.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jolly2DEngineLab"
+        xmlns:dx="clr-namespace:Jolly2DEngine.Rendering.DirectX;assembly=Jolly2DEngine"
+        mc:Ignorable="d" Title="Jolly 2D Engine Lab" Height="900" Width="1200" MinHeight="600" MinWidth="900" Background="#181A1F" Foreground="#E8EAF0">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="290" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Engine visualisation -->
+        <Border Grid.Column="0" Margin="10" Background="#101216" BorderBrush="#343943" BorderThickness="1" CornerRadius="6" ClipToBounds="True">
+            <dx:DirectXControl x:Name="AnimationView" />
+        </Border>
+
+        <!-- Engine controls -->
+        <Border Grid.Column="1" Margin="0,10,10,10" Padding="18" Background="#22252C" BorderBrush="#343943" BorderThickness="1" CornerRadius="6">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="ENGINE CONTROLS" FontSize="19" FontWeight="Bold" Margin="0,0,0,4" />
+                    <TextBlock Text="Jolly 2D Engine Lab" Foreground="#9299A8" FontSize="12" Margin="0,0,0,24" />
+
+                    <!-- Stroke -->
+                    <TextBlock Text="STROKE" Foreground="#AAB1C0" FontSize="11" FontWeight="Bold" />
+                    <DockPanel Margin="0,8,0,4">
+                        <TextBlock x:Name="StrokeValueText" Text="86.0 mm" FontSize="20" FontWeight="SemiBold" DockPanel.Dock="Left" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button x:Name="StrokeDecreaseButton" Content="−" Width="34" Height="30" Margin="4,0" FontSize="18" Click="StrokeDecreaseButton_Click" />
+                            <Button x:Name="StrokeIncreaseButton" Content="+" Width="34" Height="30" FontSize="18" Click="StrokeIncreaseButton_Click" />
+                        </StackPanel>
+                    </DockPanel>
+
+                    <Slider x:Name="StrokeSlider" Minimum="30" Maximum="150" Value="86" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="StrokeSlider_ValueChanged" />
+                    <Separator Margin="0,18,0,18" Background="#414651" />
+
+                    <!-- Bore -->
+                    <TextBlock Text="BORE" Foreground="#AAB1C0" FontSize="11" FontWeight="Bold" />
+                    <DockPanel Margin="0,8,0,4">
+                        <TextBlock x:Name="BoreValueText" Text="86.0 mm" FontSize="20" FontWeight="SemiBold" DockPanel.Dock="Left" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button x:Name="BoreDecreaseButton" Content="−" Width="34" Height="30" Margin="4,0" FontSize="18" Click="BoreDecreaseButton_Click" />
+                            <Button x:Name="BoreIncreaseButton" Content="+" Width="34" Height="30" FontSize="18" Click="BoreIncreaseButton_Click" />
+                        </StackPanel>
+                    </DockPanel>
+
+                    <Slider x:Name="BoreSlider" Minimum="30" Maximum="150" Value="86" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="BoreSlider_ValueChanged" />
+                    <Separator Margin="0,18,0,18" Background="#414651" />
+
+                    <!-- RPM -->
+                    <TextBlock Text="ENGINE SPEED" Foreground="#AAB1C0" FontSize="11" FontWeight="Bold" />
+                    <TextBlock x:Name="RpmValueText" Text="1000 RPM" FontSize="27" FontWeight="Bold" Margin="0,8,0,2" />
+                    <Slider x:Name="RpmSlider" Minimum="30" Maximum="6000" Value="250" TickFrequency="100" IsSnapToTickEnabled="False" ValueChanged="RpmSlider_ValueChanged" />
+                    <DockPanel Margin="0,8,0,0">
+                        <Button Content="− 100 RPM" Height="34" Margin="0,0,5,0" DockPanel.Dock="Left" Click="RpmDecreaseButton_Click" />
+                        <Button Content="+ 100 RPM" Height="34" Margin="5,0,0,0" DockPanel.Dock="Right" Click="RpmIncreaseButton_Click" />
+                    </DockPanel>
+
+                    <Separator Margin="0,22,0,18" Background="#414651" />
+
+                    <!-- Animation -->
+                    <TextBlock Text="ANIMATION" Foreground="#AAB1C0" FontSize="11" FontWeight="Bold" Margin="0,0,0,12" />
+                    <Button x:Name="StartButton" Content="▶   Start Animation" Height="44" FontSize="14" FontWeight="SemiBold" Background="#247A50" Foreground="White" BorderThickness="0" Click="StartButton_Click" />
+                    <Button x:Name="StopButton" Content="■   Stop Animation" Height="44" Margin="0,8,0,0" FontSize="14" Background="#8B3438" Foreground="White" BorderThickness="0" Click="StopButton_Click" />
+
+                    <Separator Margin="0,22,0,18" Background="#414651" />
+
+                    <!-- Calculated data -->
+                    <TextBlock Text="ENGINE DATA" Foreground="#AAB1C0" FontSize="11" FontWeight="Bold" Margin="0,0,0,14" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="Displacement" Foreground="#AAB1C0" Margin="0,0,0,12" />
+                        <TextBlock x:Name="DisplacementValueText" Grid.Row="0" Grid.Column="1" Text="499.6 cc" FontWeight="SemiBold" Margin="0,0,0,12" />
+                        <TextBlock Grid.Row="1" Text="Stroke / bore" Foreground="#AAB1C0" Margin="0,0,0,12" />
+                        <TextBlock x:Name="RatioValueText" Grid.Row="1" Grid.Column="1" Text="1.00 : 1" FontWeight="SemiBold" Margin="0,0,0,12" />
+                        <TextBlock Grid.Row="2" Text="Animation" Foreground="#AAB1C0" />
+                        <TextBlock x:Name="AnimationStatusText" Grid.Row="2" Grid.Column="1" Text="Stopped" FontWeight="SemiBold" />
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

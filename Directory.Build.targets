@@ -1,0 +1,10 @@
+<Project>
+
+    <Target Name="UpdateJollyEngineNuGetPackage" BeforeTargets="ResolvePackageAssets" Condition="'$(MSBuildProjectName)' == 'Jolly2DNuGetTest'">
+        <Message Importance="High" Text="Updating local Jolly2DEngine NuGet package..." />
+        <Exec Command="dotnet pack &quot;$(MSBuildThisFileDirectory)Jolly2DEngine\Jolly2DEngine.csproj&quot; -c Release -o &quot;$(MSBuildThisFileDirectory)LocalPackages&quot; --no-restore --nologo" />
+        <Exec Command="dotnet restore &quot;$(MSBuildProjectFullPath)&quot; --force --nologo" />
+        <Message Importance="High" Text="Local Jolly2DEngine NuGet package updated and Jolly2DNuGetTest restored." />
+    </Target>
+
+</Project>

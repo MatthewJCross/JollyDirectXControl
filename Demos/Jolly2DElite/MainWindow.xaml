@@ -1,0 +1,10 @@
+﻿<Window x:Class="Jolly2DElite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="clr-namespace:Jolly2DEngine.Rendering.DirectX;assembly=Jolly2DEngine"
+        Title="Jolly2DElite - Commodore 64 Elite" Width="700" Height="620" MinWidth="525" MinHeight="458" WindowStartupLocation="CenterScreen" Background="Black">
+    <Grid Background="Black">
+        <dx:DirectXControl x:Name="GameView"/>
+    </Grid>
+</Window>
+

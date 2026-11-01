@@ -1,0 +1,325 @@
+﻿<Window x:Class="JollyAmp.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Title="{Binding WindowTitle}" Width="1050" Height="1120" MinWidth="850" MinHeight="650" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#101820" Foreground="#DCE6ED">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="34"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static SystemCommands.CloseWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Close" />
+        <CommandBinding Command="{x:Static SystemCommands.MaximizeWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Maximize" />
+        <CommandBinding Command="{x:Static SystemCommands.MinimizeWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Minimize" />
+        <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Restore" />
+    </Window.CommandBindings>
+
+    <Grid Background="{StaticResource BackgroundBrush}" Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="155"/>
+            <RowDefinition Height="210"/>
+            <RowDefinition Height="62"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Image Source="/Assets/Textures/JollyAmp.png" Width="56" Height="56" Margin="0,-8,8,0"/>
+                <TextBlock Text="JOLLY" FontSize="29" FontWeight="Black" Foreground="#00C8FF"/>
+                <TextBlock Text="AMP" FontSize="29" FontWeight="Black" Foreground="#39FF70"/>
+                <TextBlock Text="  DIGITAL AUDIO PLAYER" FontSize="11" Foreground="#8193A1" VerticalAlignment="Center" Margin="15,5,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Grid.Column="1" Content="＋  OPEN FILES" Click="OpenAudioFiles_Click" Padding="18,10" Margin="0,0,20,0"/>
+                <Button Style="{StaticResource MinimizeButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize" Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
+                <Button x:Name="RestoreButton" Visibility="Collapsed" Style="{StaticResource RestoreButtonStyle}" Command="{x:Static SystemCommands.RestoreWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Restore"/>
+                <Button x:Name="MaximizeButton" Visibility="Visible" Style="{StaticResource MaximizeButtonStyle}" Command="{x:Static SystemCommands.MaximizeWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Maximize" />
+                <Button Style="{StaticResource CloseButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close" Command="{x:Static SystemCommands.CloseWindowCommand}"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- NOW PLAYING -->
+        <Border Grid.Row="1" Background="#07140D" BorderBrush="#28643D" BorderThickness="1" CornerRadius="6" Padding="15" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="NOW PLAYING" Foreground="#39FF70" FontSize="11" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding TrackTitle}" Foreground="#39FF70" FontSize="22" FontWeight="Bold" Margin="0,6,0,2"/>
+                    <TextBlock Text="{Binding TrackArtist}" Foreground="#8FC9A0" FontSize="12"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock Text="{Binding PlaybackStatus}" Foreground="#FFB52E" FontWeight="Bold" FontSize="13" HorizontalAlignment="Right"/>
+                    <TextBlock Text="JOLLY AUDIO ENGINE" Foreground="#668A71" FontSize="9" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,12,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Slider x:Name="PlaybackSlider" Grid.Row="0" Minimum="0" Maximum="{Binding TrackDuration}" Value="{Binding PlaybackPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsMoveToPointEnabled="True" IsEnabled="{Binding IsPlaying}" Height="20" Margin="0,0,0,4" Foreground="#39FF70" Background="#193322" PreviewMouseLeftButtonDown="PlaybackSlider_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="PlaybackSlider_PreviewMouseLeftButtonUp"/>
+
+                    <Grid Grid.Row="1">
+                        <TextBlock Text="{Binding PlaybackPositionText}" Foreground="#8FC9A0" FontSize="10" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding TrackDurationText}" Foreground="#8FC9A0" FontSize="10" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- TRANSPORT AND VOLUME -->
+        <Grid Grid.Row="2" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="|◀  PREV" Command="{Binding PreviousTrackCommand}" Margin="0,0,5,0" MinWidth="85"/>
+                <Button Content="▶  PLAY / PAUSE" Command="{Binding PlayPauseCommand}" Margin="0,0,5,0" MinWidth="125"/>
+                <Button Content="■  STOP" Command="{Binding StopCommand}" Margin="0,0,5,0" MinWidth="75"/>
+                <Button Content="NEXT  ▶|" Command="{Binding NextTrackCommand}" MinWidth="85"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="VOLUME" Foreground="#8193A1" FontSize="10" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <Slider Width="130" Minimum="0" Maximum="1" Value="{Binding Volume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding Volume, StringFormat={}{0:P0}}" Foreground="#39FF70" FontWeight="Bold" Width="42" TextAlignment="Right" VerticalAlignment="Center" Margin="8,0,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- SPECTRUM -->
+        <GroupBox Grid.Row="3" Header="LIVE SPECTRUM ANALYSER" Margin="0,0,0,12">
+            <Border Background="#07140D" BorderBrush="#263D30" BorderThickness="1" CornerRadius="4" Padding="8">
+                <Grid>
+                    <ItemsControl ItemsSource="{Binding SpectrumBars}" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="1" Columns="{Binding NumberOfSpectrumBars}"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Height="{Binding Height}" Background="{Binding Fill}" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1,0,0,0" CornerRadius="2,2,0,0"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Border>
+        </GroupBox>
+
+        <!-- AUDIO EFFECTS -->
+        <GroupBox Header="AUDIO EFFECTS" Grid.Row="4" Margin="4">
+            <Grid Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ECHO -->
+                <StackPanel Grid.Column="0" Margin="6,0,12,0">
+                    <CheckBox Content="Enable Echo" IsChecked="{Binding EchoEnabled}" Margin="0,0,0,6"/>
+                    <TextBlock Text="{Binding EchoDelayMilliseconds, StringFormat='Delay: {0:0} ms'}"/>
+                    <Slider Minimum="1" Maximum="1000" Value="{Binding EchoDelayMilliseconds}" TickFrequency="50"/>
+                    <TextBlock Text="{Binding EchoFeedback, StringFormat='Feedback: {0:P0}'}"/>
+                    <Slider Minimum="0" Maximum="0.95" Value="{Binding EchoFeedback}"/>
+                    <TextBlock Text="{Binding EchoWetMix, StringFormat='Mix: {0:P0}'}"/>
+                    <Slider Minimum="0" Maximum="1" Value="{Binding EchoWetMix}"/>
+                </StackPanel>
+
+                <!-- CHORUS -->
+                <StackPanel Grid.Column="1" Margin="6,0,12,0">
+                    <CheckBox Content="Enable Chorus" IsChecked="{Binding ChorusEnabled}" Margin="0,0,0,6"/>
+                    <TextBlock Text="{Binding ChorusRate, StringFormat='Rate: {0:0.00} Hz'}"/>
+                    <Slider Minimum="0.05" Maximum="5" Value="{Binding ChorusRate}"/>
+                    <TextBlock Text="{Binding ChorusDepth, StringFormat='Depth: {0:0.0} ms'}"/>
+                    <Slider Minimum="0" Maximum="10" Value="{Binding ChorusDepth}"/>
+                    <TextBlock Text="{Binding ChorusWetMix, StringFormat='Mix: {0:P0}'}"/>
+                    <Slider Minimum="0" Maximum="1"
+                    Value="{Binding ChorusWetMix}"/>
+                </StackPanel>
+
+                <!-- REVERB -->
+                <StackPanel Grid.Column="2" Margin="6,0,0,0">
+                    <CheckBox Content="Enable Reverb" IsChecked="{Binding ReverbEnabled}" Margin="0,0,0,6"/>
+                    <ComboBox ItemsSource="{Binding ReverbPresets}" SelectedItem="{Binding ReverbPreset}" Margin="0,0,0,4"/>
+                    <TextBlock Text="{Binding ReverbDecayTime, StringFormat='Decay: {0:0.0} s'}"/>
+                    <Slider Minimum="0.1" Maximum="10" Value="{Binding ReverbDecayTime}"/>
+                    <TextBlock Text="{Binding ReverbDamping, StringFormat='Damping: {0:P0}'}"/>
+                    <Slider Minimum="0" Maximum="0.95" Value="{Binding ReverbDamping}"/>
+                    <TextBlock Text="{Binding ReverbPreDelayMilliseconds, StringFormat='Pre-delay: {0:0} ms'}"/>
+                    <Slider Minimum="0" Maximum="200" Value="{Binding ReverbPreDelayMilliseconds}"/>
+                    <TextBlock Text="{Binding ReverbWetMix, StringFormat='Mix: {0:P0}'}"/>
+                    <Slider Minimum="0" Maximum="1" Value="{Binding ReverbWetMix}"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        
+        <!-- STEREO VU METERS -->
+        <GroupBox Grid.Row="5" Header="STEREO VU METERS" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="L" Foreground="#39FF70" FontWeight="Bold" VerticalAlignment="Center" Margin="4,0,10,0"/>
+
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding LeftVuMeter.Segments}" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1" Columns="24"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="15" Margin="1,0" CornerRadius="1" Background="#26352D">
+                                <Border Background="{Binding Colour}" Opacity="{Binding Opacity}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Grid.Column="2" Text="R" Foreground="#00C8FF" FontWeight="Bold" VerticalAlignment="Center" Margin="14,0,10,0"/>
+
+                <ItemsControl Grid.Column="3" ItemsSource="{Binding RightVuMeter.Segments}" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1" Columns="24"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="15" Margin="1,0" CornerRadius="1" Background="#26352D">
+                                <Border Background="{Binding Colour}" Opacity="{Binding Opacity}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </GroupBox>
+
+        <!-- EQUALISER AND PLAYLIST -->
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- EQUALISER -->
+            <GroupBox Grid.Column="0" Header="GRAPHIC EQUALISER" Margin="0,0,12,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" CanContentScroll="False">
+                        <ItemsControl ItemsSource="{Binding EqualiserBands}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="65" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                                        <TextBlock Text="{Binding GainText}" Foreground="{Binding Colour}" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,5"/>
+                                        <Slider Orientation="Vertical" Minimum="-12" Maximum="12" Value="{Binding GainDb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="170" Width="32" TickFrequency="3" IsSnapToTickEnabled="False" VerticalAlignment="Center" Foreground="{Binding Colour}"/>
+                                        <TextBox Text="{Binding Frequency, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0:0}}" Width="56" HorizontalContentAlignment="Center" FontSize="10" Background="#111A22" Foreground="{Binding Colour}" BorderBrush="#354958" Margin="0,5,0,0"/>
+                                        <TextBlock Text="{Binding Label}" Foreground="{Binding Colour}" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,3,0,0"/>
+                                        <Button Content="X" Command="{Binding DataContext.RemoveEqualiserBandCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" Width="20" Height="18" Padding="0" FontSize="12" Foreground="#FF7070" Background="#263440" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4,12,4,2">
+                        <Button Content="+ ADD BAND" Command="{Binding AddEqualiserBandCommand}" Padding="8,6" Margin="0,0,4,0"/>
+                        <Button Content="RESET EQUALISER" Command="{Binding ResetEqualiserCommand}" Padding="8,6"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            
+            <!-- PLAYLIST -->
+            <GroupBox Grid.Column="1" Header="PLAYLIST">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75*"/>
+                        <RowDefinition Height="154*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ListBox x:Name="PlaylistList" Grid.Row="0" ItemsSource="{Binding Playlist}" SelectedItem="{Binding SelectedTrack, Mode=TwoWay}" DisplayMemberPath="Title" Background="#111A22" Foreground="#DCE6ED" BorderBrush="#354958" BorderThickness="1" FontFamily="Consolas" FontSize="12" MouseDoubleClick="PlaylistList_MouseDoubleClick" Grid.RowSpan="2">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Padding" Value="7,5"/>
+                                <Setter Property="Foreground" Value="#DCE6ED"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <Border x:Name="ItemBorder" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="ItemBorder" Property="Background" Value="#07516A"/>
+                                                    <Setter Property="Foreground" Value="#39FF70"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="ItemBorder" Property="Background" Value="#293F4D"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+
+                    <TextBlock Grid.Row="2" Text="{Binding PlaylistCount, StringFormat={}{0} tracks}" Foreground="#8193A1" FontSize="10" Margin="3,7,0,0"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <!-- FOOTER / PITCH -->
+        <Border Grid.Row="7" Background="#17232D" CornerRadius="4" Padding="9" Margin="0,10,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="JOLLYAMP" Foreground="#00C8FF" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="CTRL+O OPEN    SPACE PLAY/PAUSE    ESC STOP    PAGE UP/DOWN TRACKS" Foreground="#8193A1" FontSize="9" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="PITCH" Foreground="#8193A1" FontSize="10" FontWeight="Bold" VerticalAlignment="Center" Margin="8,0"/>
+                <Slider Grid.Column="3" Minimum="-12" Maximum="12" Value="{Binding PitchSemitones, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="4" Text="{Binding PitchSemitones, StringFormat={}{0:+0.00;-0.00;0.00}}" Foreground="#00C8FF" FontSize="10" VerticalAlignment="Center" Width="48" TextAlignment="Right" Margin="8,0,0,0"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

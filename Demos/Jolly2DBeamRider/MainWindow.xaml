@@ -1,0 +1,9 @@
+<Window x:Class="Jolly2DBeamRider.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="clr-namespace:Jolly2DEngine.Rendering.DirectX;assembly=Jolly2DEngine"
+        Title="JollyBeamRider" Width="1200" Height="950" MinWidth="1000" MinHeight="650" WindowStartupLocation="CenterScreen" Background="Black">
+    <Border BorderBrush="#8A2BE2" BorderThickness="20" Background="Black">
+        <dx:DirectXControl x:Name="GameView"/>
+    </Border>
+</Window>

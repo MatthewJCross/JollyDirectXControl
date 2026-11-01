@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PlatformTarget>x64</PlatformTarget>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<RootNamespace>Jolly2DEngine</RootNamespace>
+		<AssemblyName>Jolly2DEngine</AssemblyName>
+
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+
+		<PackageId>Jolly2DEngine</PackageId>
+		<Version>1.2.0</Version>
+		<Authors>Jolly2D</Authors>
+		<Description>Jolly2D DirectX 11 2D game engine for .NET 10 WPF.</Description>
+		<PackageTags>game;engine;2d;directx;direct3d;wpf</PackageTags>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NAudio" Version="3.1.0" />
+		<PackageReference Include="Vortice.Direct3D11" Version="3.8.1" />
+		<PackageReference Include="Vortice.DXGI" Version="3.8.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Rendering\DirectX\Shaders\ImageVS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\ImagePS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\SpriteVS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\SpritePS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\LineVS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\LinePS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\TriangleVS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Rendering\DirectX\Shaders\TrianglePS.cso" Pack="true" PackagePath="contentFiles\any\any\Rendering\DirectX\Shaders\" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Rendering\Primitives\" />
+	</ItemGroup>
+</Project>

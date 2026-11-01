@@ -1,0 +1,93 @@
+<Window x:Class="Jolly2DEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="clr-namespace:Jolly2DEngine.Rendering.DirectX;assembly=Jolly2DEngine"
+        Title="Jolly2D Editor" Width="1600" Height="950" MinWidth="1000" MinHeight="650" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Scene" Click="NewScene_Click"/>
+                <MenuItem Header="_Open Scene..." />
+                <MenuItem Header="_Save Scene" />
+                <MenuItem Header="Save Scene _As..." />
+                <Separator />
+                <MenuItem Header="_Exit" Click="Exit_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo"/>
+                <MenuItem Header="_Redo"/>
+                <Separator/>
+                <MenuItem Header="_Delete" Click="Delete_Click"/>
+                <MenuItem Header="_Duplicate"/>
+            </MenuItem>
+
+            <MenuItem Header="_View">
+                <MenuItem Header="_Reset Camera" Click="ResetCamera_Click"/>
+                <MenuItem x:Name="GridMenuItem" Header="_Grid" IsCheckable="True" IsChecked="True" Click="GridMenuItem_Click"/>
+                <MenuItem Header="_Snap" IsCheckable="True"/>
+            </MenuItem>
+        </Menu>
+
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Select" Click="SelectTool_Click"/>
+                <Button Content="Move" Click="MoveTool_Click"/>
+                <Button Content="Rotate" Click="RotateTool_Click"/>
+                <Button Content="Scale" Click="ScaleTool_Click"/>
+                <Button Content="Collision" Click="CollisionTool_Click"/>
+                <Separator/>
+                <Button x:Name="SnapButton" Content="Snap"/>
+                <Button x:Name="GridButton" Content="Grid On" Click="Grid_Click"/>
+                <Separator/>
+                <Button Content="Add Object" Click="AddObject_Click" />
+                <Button Content="Add Sprite" Click="AddSprite_Click" Margin="4,0,0,0"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem x:Name="ReadyStatus" Content="Ready"/>
+            <Separator/>
+            <StatusBarItem x:Name="SceneStatus" Content="Scene: Untitled"/>
+            <Separator/>
+            <StatusBarItem x:Name="PositionStatus" Content="X: 0.00  Y: 0.00"/>
+            <Separator/>
+            <StatusBarItem x:Name="ViewportStatus" Content="Viewport: 0 x 0"/>
+            <Separator/>
+            <StatusBarItem x:Name="SelectionStatus" Content="No object selected"/>
+        </StatusBar>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="320" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderBrush="#444444" BorderThickness="0,0,1,0">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Scene" FontSize="16" FontWeight="Bold" Margin="10"/>
+                    <TreeView x:Name="SceneTree" SelectedItemChanged="SceneTree_SelectedItemChanged"/>
+                </DockPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="#202020" BorderBrush="#444444" BorderThickness="0,0,1,0">
+                <Grid>
+                    <dx:DirectXControl x:Name="SceneView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ClearEveryFrame="True" VSync="True"/>
+                    <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" Padding="8,4" Background="#AA151515" BorderBrush="#555555" BorderThickness="1" IsHitTestVisible="False">
+                        <TextBlock x:Name="GridOverlay" Text="GRID" Foreground="#AAAAAA" FontSize="11"/>
+                    </Border>
+                </Grid>
+            </Border>
+            
+            <Border Grid.Column="2">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Inspector" FontSize="16" FontWeight="Bold" Margin="10"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="InspectorPanel" Margin="10"/>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

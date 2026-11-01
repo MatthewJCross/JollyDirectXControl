@@ -1,0 +1,113 @@
+<Window x:Class="Jolly2DNuGetTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="clr-namespace:Jolly2DEngine.Rendering.DirectX;assembly=Jolly2DEngine"
+        Title="Jolly2D NuGet - Phase 15 Networking Test"
+        Width="1100"
+        Height="750"
+        Background="#202020"
+        Foreground="White">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="390" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="Black"
+                BorderBrush="#505050"
+                BorderThickness="1">
+            <dx:DirectXControl x:Name="DirectXControl" />
+        </Border>
+
+        <ScrollViewer Grid.Column="1"
+                      Margin="12,0,0,0"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="JOLLY 2D NUGET TEST"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Margin="0,0,0,5" />
+
+                <TextBlock Text="PHASE 15 - NETWORKING"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20" />
+
+                <Border Background="#303030"
+                        Padding="12"
+                        Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="NETWORK STATUS"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,8" />
+                        <TextBlock x:Name="NetworkStatusText"
+                                   Text="Server: stopped&#10;Client: disconnected&#10;Port: -"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <Button Content="START SERVER"
+                        Click="StartServerButton_Click"
+                        Height="40"
+                        Margin="0,0,0,8" />
+
+                <Button Content="CONNECT CLIENT"
+                        Click="ConnectClientButton_Click"
+                        Height="40"
+                        Margin="0,0,0,8" />
+
+                <Button Content="SEND TEST MESSAGE"
+                        Click="SendTestButton_Click"
+                        Height="40"
+                        Margin="0,0,0,8" />
+
+                <Button Content="BROADCAST FROM SERVER"
+                        Click="BroadcastButton_Click"
+                        Height="40"
+                        Margin="0,0,0,8" />
+
+                <Button Content="DISCONNECT CLIENT"
+                        Click="DisconnectClientButton_Click"
+                        Height="40"
+                        Margin="0,0,0,8" />
+
+                <Button Content="STOP SERVER"
+                        Click="StopServerButton_Click"
+                        Height="40"
+                        Margin="0,0,0,15" />
+
+                <Border Background="#303030"
+                        Padding="12"
+                        Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="MESSAGE LOG"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,8" />
+                        <TextBox x:Name="MessageLogText"
+                                 Height="250"
+                                 IsReadOnly="True"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Background="#181818"
+                                 Foreground="White" />
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#303030"
+                        Padding="12">
+                    <StackPanel>
+                        <TextBlock Text="PHASE 15"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,8" />
+                        <TextBlock Text="The engine is consumed only through Jolly2DEngine NuGet. The test starts a local TCP server, connects a client, exchanges framed messages, and verifies broadcast/disconnect handling."
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</Window>
