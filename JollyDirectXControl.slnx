@@ -4,19 +4,10 @@
     <Platform Name="x64" />
   </Configurations>
   <Folder Name="/Demos/">
-    <Project Path="Demos/Jolly2DBeamRider/Jolly2DBeamRider.csproj">
-      <Platform Project="x64" />
-    </Project>
     <Project Path="Demos/Jolly2DElite/Jolly2DElite.csproj">
       <Platform Solution="*|x64" Project="x64" />
     </Project>
     <Project Path="Demos/Jolly2DEngineLab/Jolly2DEngineLab.csproj" Id="46fd5624-2453-4e3c-959f-27462b39cf27">
-      <Platform Solution="Debug|x64" Project="x64" />
-    </Project>
-    <Project Path="Demos/Jolly2DJetpac/Jolly2DJetPac.csproj">
-      <Platform Project="x64" />
-    </Project>
-    <Project Path="Demos/Jolly2DMonty/Jolly2DMonty.csproj" Id="4c936870-6b3f-4456-991b-adc7b0dc48d9">
       <Platform Solution="Debug|x64" Project="x64" />
     </Project>
     <Project Path="Demos/Jolly2DTronCycles/Jolly2DTronCycles.csproj" Id="cc2090fe-5dcb-4a8a-a1dd-9b357d236563">
