@@ -115,7 +115,7 @@ namespace Jolly2DTronCycles.Game
             _renderer.Camera.Rotation = 0.0f;
 
             _uiManager = new JollyUIManager();
-            _uiRenderer = new JollyUIRenderer(_uiManager, texture => _renderer.CreateSprite(texture), (r, g, b, a) => _renderer.CreateSolidTexture(r, g, b, a), (text, fontFamily, fontSize, color, bold, italic) => _renderer.CreateTextTexture(text, fontFamily, fontSize, color, bold, italic));
+            _uiRenderer = new JollyUIRenderer(_uiManager, texture => _renderer.CreateSprite(texture), (r, g, b, a) => _renderer.CreateSolidTexture(r, g, b, a), (text, fontFamily, fontSize, color, bold, italic, ultrabold) => _renderer.CreateTextTexture(text, fontFamily, fontSize, color, bold, italic));
 
             CreateUI();
             LoadHighScore();
@@ -131,11 +131,11 @@ namespace Jolly2DTronCycles.Game
 
         private void LoadSounds()
         {
-            _assets.LoadSound("RunLoop.wav");
-            _assets.LoadSound("Victory.wav");
-            _assets.LoadSound("Turn.wav");
-            _assets.LoadSound("Turbo.wav");
-            _assets.LoadSound("Die.wav");
+            _assets!.LoadSound("RunLoop.wav");
+            _assets!.LoadSound("Victory.wav");
+            _assets!.LoadSound("Turn.wav");
+            _assets!.LoadSound("Turbo.wav");
+            _assets!.LoadSound("Die.wav");
         }
 
         private bool IsSpacePressed()

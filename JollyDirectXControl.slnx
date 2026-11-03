@@ -14,6 +14,7 @@
       <Platform Solution="*|x64" Project="x64" />
     </Project>
     <Project Path="Demos/JollyAmp/JollyAmp.csproj" Id="00839398-5f06-4f97-a708-b244493f30a6" />
+    <Project Path="Demos/JollyDrumMachine/JollyDrumMachine.csproj" Id="98fcca8d-2aac-453b-8ecd-27ab218e648b" />
   </Folder>
   <Project Path="Jolly2DEditor/Jolly2DEditor.csproj" Id="91a1b1de-6e13-4ae4-8e14-8d64d317653d">
     <Platform Solution="Debug|x64" Project="x64" />

@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\JollyDirectXControl\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Projects\\JollyDirectXControl\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|c:\\projects\\jollydirectxcontrol\\demos\\jollydrummachine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Projects\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAwwIIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T10:05:27.105Z",
+              "EditorCaption": ""
             }
           ]
         }

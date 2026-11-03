@@ -300,7 +300,8 @@ namespace Jolly2DEngine.Rendering.DirectX
             int width = _panel.ClientSize.Width;
             int height = _panel.ClientSize.Height;
 
-            _renderer.Resize(width, height);
+            _renderer.Resize(width, height,
+            _renderer.Get_renderTargetView1());
             RenderSizeChanged?.Invoke(width, height);
         }
 

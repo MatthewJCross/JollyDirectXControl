@@ -19,46 +19,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\BlueCycleDown.png" Link="Assets\Textures\BlueCycleDown.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\BlueCycleLeft.png" Link="Assets\Textures\BlueCycleLeft.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\BlueCycleRight.png" Link="Assets\Textures\BlueCycleRight.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\BlueCycleUp.png" Link="Assets\Textures\BlueCycleUp.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\YellowCycleDown.png" Link="Assets\Textures\YellowCycleDown.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\YellowCycleLeft.png" Link="Assets\Textures\YellowCycleLeft.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\YellowCycleRight.png" Link="Assets\Textures\YellowCycleRight.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
-		<Content Include="..\..\..\Projects\LightCycles\LightCycles\Assets\Sprites\YellowCycleUp.png" Link="Assets\Textures\YellowCycleUp.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-
 		<Content Include="LightCycles.ico">
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 		</Content>
@@ -97,6 +57,38 @@
 		<None Update="Assets\Audio\Victory.wav">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+
+		<None Update="Assets\Textures\BlueCycleDown.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\BlueCycleLeft.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\BlueCycleRight.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\BlueCycleUp.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\YellowCycleDown.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\YellowCycleLeft.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\YellowCycleRight.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Assets\Textures\YellowCycleUp.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 

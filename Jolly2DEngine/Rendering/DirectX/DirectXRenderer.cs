@@ -2044,7 +2044,12 @@ namespace Jolly2DEngine.Rendering.DirectX
             return true;
         }
 
-        public void Resize(int width, int height)
+        public ID3D11RenderTargetView? Get_renderTargetView1()
+        {
+            return _renderTargetView;
+        }
+
+        public void Resize(int width, int height, ID3D11RenderTargetView? _renderTargetView1)
         {
             if (width <= 0 || height <= 0)
             {
@@ -2053,7 +2058,7 @@ namespace Jolly2DEngine.Rendering.DirectX
 
             if (_renderThreadRunning && !IsRenderThread)
             {
-                QueueRenderCommand(() => Resize(width, height));
+                QueueRenderCommand(() => Resize(width, height, Get_renderTargetView1()));
                 return;
             }
 
@@ -2085,7 +2090,7 @@ namespace Jolly2DEngine.Rendering.DirectX
             _spriteConstantBufferWidth = 0.0f;
             _spriteConstantBufferHeight = 0.0f;
 
-            _context.OMSetRenderTargets(_renderTargetView);
+            _context.OMSetRenderTargets(renderTargetView: _renderTargetView);
             _context.RSSetViewport(new Viewport(0, 0, _width, _height, 0.0f, 1.0f));
         }
 
