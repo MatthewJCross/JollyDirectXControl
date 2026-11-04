@@ -4,6 +4,18 @@
              xmlns:local="clr-namespace:JollyDrumMachine"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Color x:Key="BackgroundColor">#0B1118</Color>
+        <Color x:Key="PanelColor">#121D28</Color>
+        <Color x:Key="PanelLightColor">#1A2937</Color>
+        <Color x:Key="AccentColor">#55D6BE</Color>
+
+        <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+        <SolidColorBrush x:Key="PanelBrush" Color="{StaticResource PanelColor}" />
+        <SolidColorBrush x:Key="PanelLightBrush" Color="{StaticResource PanelLightColor}" />
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+        <SolidColorBrush x:Key="TextBrush" Color="#E8F0F6" />
+        <SolidColorBrush x:Key="MutedBrush" Color="#8DA2B4" />
+
+
     </Application.Resources>
 </Application>

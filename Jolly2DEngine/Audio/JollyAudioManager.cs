@@ -187,7 +187,7 @@ namespace Jolly2DEngine.Audio
                     return;
                 }
 
-                instances = _activeSounds.ToArray();
+                instances = [.. _activeSounds];
                 _activeSounds.Clear();
             }
 
@@ -213,8 +213,10 @@ namespace Jolly2DEngine.Audio
             StopMusic();
 
             _musicPath = fullPath;
-            _musicReader = new AudioFileReader(fullPath);
-            _musicReader.Volume = GetMusicVolume();
+            _musicReader = new AudioFileReader(fullPath)
+            {
+                Volume = GetMusicVolume()
+            };
             _musicOutput = new WaveOut();
             _musicEffects = effects;
 
@@ -417,7 +419,7 @@ namespace Jolly2DEngine.Audio
 
             lock (_lock)
             {
-                instances = _activeSounds.ToArray();
+                instances = [.. _activeSounds];
             }
 
             foreach (SoundInstance instance in instances)
@@ -453,8 +455,7 @@ namespace Jolly2DEngine.Audio
 
         private sealed class SoundInstance : IDisposable
         {
-            private readonly object _stateLock = new();
-
+            private readonly Lock _stateLock = new();
             private bool _cleanupStarted;
             private bool _started;
             private bool _disposed;
@@ -592,21 +593,15 @@ namespace Jolly2DEngine.Audio
             }
         }
 
-        private sealed class CachedSoundSampleProvider : ISampleProvider
+        private sealed class CachedSoundSampleProvider(CachedSound sound) : ISampleProvider
         {
-            private readonly CachedSound _sound;
             private int _position;
 
-            public WaveFormat WaveFormat => _sound.WaveFormat;
-
-            public CachedSoundSampleProvider(CachedSound sound)
-            {
-                _sound = sound;
-            }
+            public WaveFormat WaveFormat => sound.WaveFormat;
 
             public int Read(Span<float> buffer)
             {
-                int availableSamples = _sound.AudioData.Length - _position;
+                int availableSamples = sound.AudioData.Length - _position;
 
                 if (availableSamples <= 0)
                 {
@@ -615,7 +610,7 @@ namespace Jolly2DEngine.Audio
 
                 int samplesToCopy = System.Math.Min(buffer.Length, availableSamples);
 
-                _sound.AudioData.AsSpan(_position, samplesToCopy).CopyTo(buffer);
+                sound.AudioData.AsSpan(_position, samplesToCopy).CopyTo(buffer);
 
                 _position += samplesToCopy;
 
@@ -623,23 +618,16 @@ namespace Jolly2DEngine.Audio
             }
         }
 
-        private sealed class LoopStream : WaveStream
+        private sealed class LoopStream(WaveStream source) : WaveStream
         {
-            private readonly WaveStream _source;
+            public override WaveFormat WaveFormat => source.WaveFormat;
 
-            public LoopStream(WaveStream source)
-            {
-                _source = source;
-            }
-
-            public override WaveFormat WaveFormat => _source.WaveFormat;
-
-            public override long Length => _source.Length;
+            public override long Length => source.Length;
 
             public override long Position
             {
-                get => _source.Position;
-                set => _source.Position = value;
+                get => source.Position;
+                set => source.Position = value;
             }
 
             public override int Read(byte[] buffer, int offset, int count)
@@ -648,11 +636,11 @@ namespace Jolly2DEngine.Audio
 
                 while (totalBytesRead < count)
                 {
-                    int bytesRead = _source.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
+                    int bytesRead = source.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
 
                     if (bytesRead == 0)
                     {
-                        _source.Position = 0;
+                        source.Position = 0;
                         continue;
                     }
 
@@ -666,25 +654,16 @@ namespace Jolly2DEngine.Audio
             {
                 if (disposing)
                 {
-                    _source.Dispose();
+                    source.Dispose();
                 }
 
                 base.Dispose(disposing);
             }
         }
 
-        private sealed class LoopingSampleProvider : ISampleProvider
+        private sealed class LoopingSampleProvider(ISampleProvider source, Action rewind) : ISampleProvider
         {
-            private readonly ISampleProvider _source;
-            private readonly Action _rewind;
-
-            public WaveFormat WaveFormat => _source.WaveFormat;
-
-            public LoopingSampleProvider(ISampleProvider source, Action rewind)
-            {
-                _source = source;
-                _rewind = rewind;
-            }
+            public WaveFormat WaveFormat => source.WaveFormat;
 
             public int Read(Span<float> buffer)
             {
@@ -692,13 +671,13 @@ namespace Jolly2DEngine.Audio
 
                 while (totalSamplesRead < buffer.Length)
                 {
-                    int samplesRead = _source.Read(buffer[totalSamplesRead..]);
+                    int samplesRead = source.Read(buffer[totalSamplesRead..]);
 
                     if (samplesRead == 0)
                     {
-                        _rewind();
+                        rewind();
 
-                        samplesRead = _source.Read(buffer[totalSamplesRead..]);
+                        samplesRead = source.Read(buffer[totalSamplesRead..]);
 
                         if (samplesRead == 0)
                         {
