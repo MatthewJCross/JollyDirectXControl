@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Jolly2D DirectX 11 2D game engine for .NET 10 WPF.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.0+fb2ab168f740d831ca7dc4bb7427b8ac685d023c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.0+740cf3667334e7dc4176c7fe78d83838114c537d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jolly2DEngine")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jolly2DEngine")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.2.0.0")]

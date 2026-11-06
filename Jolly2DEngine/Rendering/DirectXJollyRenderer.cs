@@ -340,5 +340,11 @@ namespace Jolly2DEngine.Rendering.DirectX
         {
             Camera.SetViewport(width, height);
         }
+
+        public float SetLogicalResolution(float width, float height)
+        {
+            Camera.Zoom = MathF.Min(Camera.ViewportSize.X / width, Camera.ViewportSize.Y / height);
+            return Camera.Zoom;
+        }
     }
 }
