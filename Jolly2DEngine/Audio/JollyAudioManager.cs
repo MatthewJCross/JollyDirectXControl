@@ -19,6 +19,8 @@ namespace Jolly2DEngine.Audio
         private float _musicVolume = 1.0f;
         private float _sfxVolume = 1.0f;
         private bool _muted;
+        private float _musicSpeed = 1.0f;
+        private bool _musicLoop;
         private bool _disposed;
 
         public float MasterVolume
@@ -76,6 +78,17 @@ namespace Jolly2DEngine.Audio
 
 
         public bool IsMusicPlaying => _musicOutput?.PlaybackState == PlaybackState.Playing;
+        public float MusicSpeed => _musicSpeed;
+        public bool IsAnySoundPlaying
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    return _activeSounds.Count > 0;
+                }
+            }
+        }
         public string? CurrentMusic => _musicPath;
         public JollyAudioEffects? MusicEffects => _musicEffects;
         public TimeSpan MusicPosition => _musicReader?.CurrentTime ?? TimeSpan.Zero;
@@ -104,7 +117,7 @@ namespace Jolly2DEngine.Audio
                     return;
                 }
 
-                _sounds.Add(key, new CachedSound(fullPath));
+                _sounds.Add(key, new CachedSound(key, fullPath));
             }
         }
 
@@ -174,6 +187,18 @@ namespace Jolly2DEngine.Audio
             }
 
             return group;
+        }
+
+        public bool IsSoundPlaying(string name)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
+            string key = Path.GetFileNameWithoutExtension(name);
+
+            lock (_lock)
+            {
+                return _activeSounds.Any(instance => string.Equals(instance.Sound.Name, key, StringComparison.OrdinalIgnoreCase));
+            }
         }
 
         public void StopAllSounds()
@@ -284,6 +309,71 @@ namespace Jolly2DEngine.Audio
             output?.Stop();
             output?.Dispose();
             reader?.Dispose();
+        }
+
+        public void SetMusicSpeed(float speed)
+        {
+            ThrowIfDisposed();
+
+            if (!float.IsFinite(speed) || speed < 0.5f || speed > 2.0f)
+            {
+                throw new ArgumentOutOfRangeException(nameof(speed), "Music speed must be between 0.5 and 2.0.");
+            }
+
+            if (MathF.Abs(_musicSpeed - speed) < 0.001f)
+            {
+                return;
+            }
+
+            _musicSpeed = speed;
+
+            if (_musicReader == null)
+            {
+                return;
+            }
+
+            PlaybackState playbackState = _musicOutput?.PlaybackState ?? PlaybackState.Stopped;
+
+            _musicOutput?.Stop();
+
+            TimeSpan position = _musicReader.CurrentTime;
+
+            _musicOutput?.Dispose();
+            _musicOutput = null;
+
+            _musicReader.CurrentTime = position;
+
+            CreateMusicOutput(playbackState == PlaybackState.Playing, playbackState == PlaybackState.Paused);
+        }
+
+        private void CreateMusicOutput(bool play, bool pause)
+        {
+            if (_musicReader == null)
+            {
+                return;
+            }
+
+            ISampleProvider source = _musicLoop ? new WaveToSampleProvider(new LoopStream(_musicReader)) : _musicReader;
+
+            if (_musicEffects != null)
+            {
+                source = _musicEffects.CreateSampleProvider(source);
+            }
+
+            source = new PlaybackRateSampleProvider(source, _musicSpeed);
+
+            _musicOutput = new WaveOut();
+            _musicOutput.Init(new SampleToWaveProvider(source));
+
+            if (play || pause)
+            {
+                _musicOutput.Play();
+            }
+
+            if (pause)
+            {
+                _musicOutput.Pause();
+            }
         }
 
         public void ClearSounds()
@@ -547,12 +637,13 @@ namespace Jolly2DEngine.Audio
 
         private sealed class CachedSound
         {
+            public string Name { get; }
             public WaveFormat WaveFormat { get; }
-
             public float[] AudioData { get; }
 
-            public CachedSound(string audioFileName)
+            public CachedSound(string name, string audioFileName)
             {
+                Name = name;
                 using AudioFileReader reader = new(audioFileName);
 
                 WaveFormat = reader.WaveFormat;
@@ -689,6 +780,25 @@ namespace Jolly2DEngine.Audio
                 }
 
                 return totalSamplesRead;
+            }
+        }
+
+        private sealed class PlaybackRateSampleProvider : ISampleProvider
+        {
+            private readonly ISampleProvider _source;
+
+            public WaveFormat WaveFormat { get; }
+
+            public PlaybackRateSampleProvider(ISampleProvider source, float speed)
+            {
+                _source = source;
+                int sampleRate = (int)MathF.Round(source.WaveFormat.SampleRate * speed);
+                WaveFormat = NAudio.Wave.WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, source.WaveFormat.Channels);
+            }
+
+            public int Read(Span<float> buffer)
+            {
+                return _source.Read(buffer);
             }
         }
     }

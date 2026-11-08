@@ -1,46 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\JollyDirectXControl\\",
+  "WorkspaceRootPath": "F:\\JollyDirectXControl\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|e:\\jollydirectxcontrol\\jolly2dengine\\rendering\\directxjollyrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|solutionrelative:jolly2dengine\\rendering\\directxjollyrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|e:\\jollydirectxcontrol\\jolly2dengine\\audio\\jollyaudiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|f:\\jollydirectxcontrol\\jolly2dengine\\audio\\jollyaudiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|solutionrelative:jolly2dengine\\audio\\jollyaudiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\jollydrummachine.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\jollydrummachine.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\services\\projectfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\services\\projectfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\services\\drumsequencerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\services\\drumsequencerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\models\\patternfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\models\\patternfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\models\\arrangemententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\models\\arrangemententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|e:\\jollydirectxcontrol\\demos\\jollydrummachine\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{98FCCA8D-2AAC-453B-8ECD-27AB218E648B}|Demos\\JollyDrumMachine\\JollyDrumMachine.csproj|solutionrelative:demos\\jollydrummachine\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CC2090FE-5DCB-4A8A-A1DD-9B357D236563}|Demos\\Jolly2DTronCycles\\Jolly2DTronCycles.csproj|f:\\jollydirectxcontrol\\demos\\jolly2dtroncycles\\game\\trongame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC2090FE-5DCB-4A8A-A1DD-9B357D236563}|Demos\\Jolly2DTronCycles\\Jolly2DTronCycles.csproj|solutionrelative:demos\\jolly2dtroncycles\\game\\trongame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -63,122 +31,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DirectXJollyRenderer.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Jolly2DEngine\\Rendering\\DirectXJollyRenderer.cs",
-              "RelativeDocumentMoniker": "Jolly2DEngine\\Rendering\\DirectXJollyRenderer.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Jolly2DEngine\\Rendering\\DirectXJollyRenderer.cs",
-              "RelativeToolTip": "Jolly2DEngine\\Rendering\\DirectXJollyRenderer.cs",
-              "ViewState": "AgIAADoBAAAAAAAAAAAAAFYBAAAAAAAAAAAAAA==",
+              "Title": "JollyAudioManager.cs",
+              "DocumentMoniker": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs",
+              "RelativeDocumentMoniker": "Jolly2DEngine\\Audio\\JollyAudioManager.cs",
+              "ToolTip": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs*",
+              "RelativeToolTip": "Jolly2DEngine\\Audio\\JollyAudioManager.cs*",
+              "ViewState": "AgIAACkBAAAAAAAAAAAowDkBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T14:09:42.942Z",
+              "WhenOpened": "2026-11-06T18:04:08.176Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JollyDrumMachine.csproj",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\JollyDrumMachine.csproj",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\JollyDrumMachine.csproj",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\JollyDrumMachine.csproj",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\JollyDrumMachine.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-11-04T18:43:53.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACcBAAAAAAAAAAAhwD0BAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T11:21:54.41Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProjectFileService.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Services\\ProjectFileService.cs",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\Services\\ProjectFileService.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Services\\ProjectFileService.cs",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\Services\\ProjectFileService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAADgvzAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T18:27:53.127Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DrumSequencerService.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Services\\DrumSequencerService.cs",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\Services\\DrumSequencerService.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Services\\DrumSequencerService.cs",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\Services\\DrumSequencerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T11:23:00.479Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PatternFile.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Models\\PatternFile.cs",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\Models\\PatternFile.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Models\\PatternFile.cs",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\Models\\PatternFile.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAD4vyEAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T11:22:32.958Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "JollyAudioManager.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs",
-              "RelativeDocumentMoniker": "Jolly2DEngine\\Audio\\JollyAudioManager.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs",
-              "RelativeToolTip": "Jolly2DEngine\\Audio\\JollyAudioManager.cs",
-              "ViewState": "AgIAAJACAAAAAAAAAADgv7UCAAAAAAAAAAAAAA==",
+              "Title": "TronGame.cs",
+              "DocumentMoniker": "F:\\JollyDirectXControl\\Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
+              "RelativeDocumentMoniker": "Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
+              "ToolTip": "F:\\JollyDirectXControl\\Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
+              "RelativeToolTip": "Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
+              "ViewState": "AgIAAGQBAAAAAAAAAAAiwJYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T11:27:57.634Z",
+              "WhenOpened": "2026-11-06T17:08:41.254Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\MainWindow.xaml",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\MainWindow.xaml",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-03T17:50:53.748Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ArrangementEntry.cs",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Models\\ArrangementEntry.cs",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\Models\\ArrangementEntry.cs",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\Models\\ArrangementEntry.cs",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\Models\\ArrangementEntry.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T11:23:52.584Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "App.xaml",
-              "DocumentMoniker": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\App.xaml",
-              "RelativeDocumentMoniker": "Demos\\JollyDrumMachine\\App.xaml",
-              "ToolTip": "E:\\JollyDirectXControl\\Demos\\JollyDrumMachine\\App.xaml",
-              "RelativeToolTip": "Demos\\JollyDrumMachine\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-03T17:52:27.899Z"
             }
           ]
         }
