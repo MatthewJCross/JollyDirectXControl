@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "F:\\JollyDirectXControl\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|f:\\jollydirectxcontrol\\jolly2dengine\\audio\\variablespeedsampleprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|solutionrelative:jolly2dengine\\audio\\variablespeedsampleprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|f:\\jollydirectxcontrol\\jolly2dengine\\audio\\jollychorussampleprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|solutionrelative:jolly2dengine\\audio\\jollychorussampleprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|f:\\jollydirectxcontrol\\jolly2dengine\\audio\\jollyaudiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{038492C0-00DF-BCE9-5AA7-EF781DA49F42}|Jolly2DEngine\\Jolly2DEngine.csproj|solutionrelative:jolly2dengine\\audio\\jollyaudiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,26 +38,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JollyChorusSampleProvider.cs",
+              "DocumentMoniker": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyChorusSampleProvider.cs",
+              "RelativeDocumentMoniker": "Jolly2DEngine\\Audio\\JollyChorusSampleProvider.cs",
+              "ToolTip": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyChorusSampleProvider.cs",
+              "RelativeToolTip": "Jolly2DEngine\\Audio\\JollyChorusSampleProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T11:04:58.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "VariableSpeedSampleProvider.cs",
+              "DocumentMoniker": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\VariableSpeedSampleProvider.cs",
+              "RelativeDocumentMoniker": "Jolly2DEngine\\Audio\\VariableSpeedSampleProvider.cs",
+              "ToolTip": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\VariableSpeedSampleProvider.cs*",
+              "RelativeToolTip": "Jolly2DEngine\\Audio\\VariableSpeedSampleProvider.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T11:04:28.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "JollyAudioManager.cs",
               "DocumentMoniker": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs",
               "RelativeDocumentMoniker": "Jolly2DEngine\\Audio\\JollyAudioManager.cs",
               "ToolTip": "F:\\JollyDirectXControl\\Jolly2DEngine\\Audio\\JollyAudioManager.cs*",
               "RelativeToolTip": "Jolly2DEngine\\Audio\\JollyAudioManager.cs*",
-              "ViewState": "AgIAACkBAAAAAAAAAAAowDkBAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAQwBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-06T18:04:08.176Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TronGame.cs",
               "DocumentMoniker": "F:\\JollyDirectXControl\\Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
               "RelativeDocumentMoniker": "Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
               "ToolTip": "F:\\JollyDirectXControl\\Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
               "RelativeToolTip": "Demos\\Jolly2DTronCycles\\Game\\TronGame.cs",
-              "ViewState": "AgIAAGQBAAAAAAAAAAAiwJYAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-06T17:08:41.254Z",
               "EditorCaption": ""

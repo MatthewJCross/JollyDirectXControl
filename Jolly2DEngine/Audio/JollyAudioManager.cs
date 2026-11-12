@@ -19,6 +19,7 @@ namespace Jolly2DEngine.Audio
         private float _musicVolume = 1.0f;
         private float _sfxVolume = 1.0f;
         private bool _muted;
+        private VariableSpeedSampleProvider? _musicSpeedProvider;
         private float _musicSpeed = 1.0f;
         private bool _musicLoop;
         private bool _disposed;
@@ -225,44 +226,44 @@ namespace Jolly2DEngine.Audio
         public void PlayMusic(string path, bool loop = true, JollyAudioEffects? effects = null)
         {
             ThrowIfDisposed();
-
             ArgumentException.ThrowIfNullOrWhiteSpace(path);
 
             string fullPath = Path.GetFullPath(path);
 
             if (!File.Exists(fullPath))
-            {
                 throw new FileNotFoundException("Music file was not found.", fullPath);
-            }
 
             StopMusic();
 
             _musicPath = fullPath;
+            _musicLoop = loop;
+            _musicEffects = effects;
+            _musicSpeed = 1.0f;
+
             _musicReader = new AudioFileReader(fullPath)
             {
                 Volume = GetMusicVolume()
             };
+
+            ISampleProvider source = _musicReader;
+
+            if (loop)
+            {
+                source = new LoopingSampleProvider(
+                    source,
+                    () => _musicReader.Position = 0);
+            }
+
+            if (effects != null)
+                source = effects.CreateSampleProvider(source);
+
+            _musicSpeedProvider = new VariableSpeedSampleProvider(source)
+            {
+                Speed = _musicSpeed
+            };
+
             _musicOutput = new WaveOut();
-            _musicEffects = effects;
-
-            if (effects == null)
-            {
-                if (loop)
-                {
-                    _musicOutput.Init(new LoopStream(_musicReader));
-                }
-                else
-                {
-                    _musicOutput.Init(_musicReader);
-                }
-            }
-            else
-            {
-                ISampleProvider source = loop ? new WaveToSampleProvider(new LoopStream(_musicReader)) : _musicReader;
-                ISampleProvider processed = effects.CreateSampleProvider(source);
-                _musicOutput.Init(new SampleToWaveProvider(processed));
-            }
-
+            _musicOutput.Init(_musicSpeedProvider);
             _musicOutput.Play();
         }
 
@@ -303,8 +304,10 @@ namespace Jolly2DEngine.Audio
 
             _musicOutput = null;
             _musicReader = null;
+            _musicSpeedProvider = null;
             _musicPath = null;
             _musicEffects = null;
+            _musicLoop = false;
 
             output?.Stop();
             output?.Dispose();
@@ -316,34 +319,12 @@ namespace Jolly2DEngine.Audio
             ThrowIfDisposed();
 
             if (!float.IsFinite(speed) || speed < 0.5f || speed > 2.0f)
-            {
-                throw new ArgumentOutOfRangeException(nameof(speed), "Music speed must be between 0.5 and 2.0.");
-            }
-
-            if (MathF.Abs(_musicSpeed - speed) < 0.001f)
-            {
-                return;
-            }
+                throw new ArgumentOutOfRangeException(nameof(speed));
 
             _musicSpeed = speed;
 
-            if (_musicReader == null)
-            {
-                return;
-            }
-
-            PlaybackState playbackState = _musicOutput?.PlaybackState ?? PlaybackState.Stopped;
-
-            _musicOutput?.Stop();
-
-            TimeSpan position = _musicReader.CurrentTime;
-
-            _musicOutput?.Dispose();
-            _musicOutput = null;
-
-            _musicReader.CurrentTime = position;
-
-            CreateMusicOutput(playbackState == PlaybackState.Playing, playbackState == PlaybackState.Paused);
+            if (_musicSpeedProvider != null)
+                _musicSpeedProvider.Speed = speed;
         }
 
         private void CreateMusicOutput(bool play, bool pause)
